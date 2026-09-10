@@ -1,0 +1,20 @@
+[package]
+name = "fedora-tools"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.104"
+async-stomp = "0.6.3"
+futures = "0.3.33"
+json-ld = "0.21.4"
+reqwest = { version = "0.13", features = ["json"] }
+uris = "0.1.1"
+rdf = "0.1.4"
+
+[dependencies.uuid]
+version = "1.24.0"
+# Generate random UUIDs
+features = [
+    "v4",
+]

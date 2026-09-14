@@ -1,19 +1,20 @@
-use uris::{Error, Uri};
+use reqwest::Url;
+use anyhow::{Result};
 
 pub struct FedoraAuth {
     pub username: String,
     pub password: String,
-    pub root_uri: Uri,
+    pub root_url: Url,
 }
 
 impl FedoraAuth {
     /* Returns uri::Error if root_uri fails to parse */
-    pub fn new(username: &str, password: &str, root_uri: &str) -> Result<Self, Error> {
-        let uri = Uri::parse(root_uri)?;
+    pub fn new(username: &str, password: &str, root_uri: &str) -> Result<Self> {
+        let url = Url::parse(root_uri)?;
         Ok(Self {
             username: username.to_owned(),
             password: password.to_owned(),
-            root_uri: uri,
+            root_url: url,
         })
     }
 }

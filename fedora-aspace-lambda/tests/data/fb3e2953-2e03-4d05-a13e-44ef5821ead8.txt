@@ -1,0 +1,60 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fedora: <http://fedora.info/definitions/v4/repository#> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix iana: <http://www.iana.org/assignments/relation/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+<http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620740>
+        <http://www.openarchives.org/ore/terms/proxyFor>  <http://localhost:8080/fcrepo/rest/development/57/31/91/b3/573191b3-3b61-4055-82f1-3195b99e5384> ;
+        iana:next  <http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620760> .
+
+<http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620760>
+        <http://www.openarchives.org/ore/terms/proxyFor>  <http://localhost:8080/fcrepo/rest/development/73/02/92/af/730292af-7f2e-4682-8f6c-c2c2517f6f7d> .
+
+<http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8>
+        dcterms:license          "https://creativecommons.org/licenses/by-nc/4.0/" ;
+        dcterms:isPartOf         <http://localhost:8080/fcrepo/rest/development/84/0e/d3/73/840ed373-1709-40db-913a-0fe969e8124e> ;
+        <http://www.europeana.eu/schemas/edm/rights>  "http://rightsstatements.org/vocab/NKC/1.0/" ;
+        dcterms:title            "Revenue act of 1918 / approved by President Woodrow Wilson, February 24, 1919." ;
+        <https://iro.bl.uk/resource#bulkraxIdentifier>  "f41211f1-7028-440d-80a6-61e83da1de3e" ;
+        ebucore:hasRelatedMediaFragment  <http://localhost:8080/fcrepo/rest/development/9b/71/28/6e/9b71286e-bff4-4ab6-9bf4-b99699a5a094> ;
+        dcterms:type             "Book" ;
+        iana:last                <http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620760> ;
+        dcterms:created          "1919" ;
+        <http://scholarspace.library.gwu.edu/ns#gwaffiliation>  "GW Program on Extremism" ;
+        ebucore:hasRelatedImage  <http://localhost:8080/fcrepo/rest/development/73/02/92/af/730292af-7f2e-4682-8f6c-c2c2517f6f7d> ;
+        <http://fedora.info/definitions/1/0/access/ObjState#objState>  <http://fedora.info/definitions/1/0/access/ObjState#active> ;
+        dcterms:modified         "2026-09-01T16:31:36.864159132+00:00"^^<http://example.com/predicate/valkyrie_datetime> ;
+        <http://vocabulary.samvera.org/ns#created_at>  "2026-09-01T16:31:25.201074293+00:00"^^<http://example.com/predicate/valkyrie_datetime> ;
+        rdfs:seeAlso             "https://archive.org/download/revenueactof191800unse/revenueactof191800unse_djvu.txt" ;
+        dcterms:id               <http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8> ;
+        <info:fedora/fedora-system:def/model#hasModel>  "GwWork" ;
+        <http://id.loc.gov/vocabulary/relators/dpt>  "admin@example.com" ;
+        <http://vocabulary.samvera.org/ns#updatedAt>  "2026-09-01T16:39:34.892719298+00:00"^^<http://example.com/predicate/valkyrie_time> ;
+        dcterms:dateSubmitted    "2026-09-01T16:31:36.864159132+00:00"^^<http://example.com/predicate/valkyrie_datetime> ;
+        dcterms:identifier       "ark:/13960/t4km6xx79" ;
+        iana:first               <http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620700> ;
+        dc:creator               "Unknown" .
+
+<http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620700>
+        <http://www.openarchives.org/ore/terms/proxyFor>  <http://localhost:8080/fcrepo/rest/development/9b/71/28/6e/9b71286e-bff4-4ab6-9bf4-b99699a5a094> ;
+        iana:next  <http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620720> .
+
+<http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620720>
+        <http://www.openarchives.org/ore/terms/proxyFor>  <http://localhost:8080/fcrepo/rest/development/b3/62/3d/ae/b3623dae-0350-4d89-9e38-976f0f70bf8e> ;
+        iana:next  <http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8#g620740> .
+
+<http://localhost:8080/fcrepo/rest/development/fb/3e/29/53/fb3e2953-2e03-4d05-a13e-44ef5821ead8>
+        fedora:created         "2026-09-01T16:31:25.261581Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        fedora:lastModified    "2026-09-01T16:39:34.964702Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        fedora:createdBy       "fedoraAdmin" ;
+        fedora:lastModifiedBy  "fedoraAdmin" ;
+        rdf:type               ldp:BasicContainer ;
+        rdf:type               ldp:Resource ;
+        rdf:type               fedora:Resource ;
+        rdf:type               ldp:RDFSource ;
+        rdf:type               ldp:Container ;
+        rdf:type               fedora:Container .

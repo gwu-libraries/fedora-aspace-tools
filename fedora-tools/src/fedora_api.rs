@@ -6,18 +6,19 @@ use rdf::{reader::{rdf_parser::RdfParser, turtle_parser::TurtleParser}, graph::G
 
 const HYRAX_MODEL_PREDICATE: &'static str = "info:fedora/fedora-system:def/model#hasModel";
 const ASPACE_REF_PREDICATE: &'static str = "http://purl.org/dc/terms/identifier";
-const HYRAX_MODEL_OBJECT: &'static str = "Hyrax::ArchivalDocument";
+const HYRAX_MODEL_OBJECT: &'static str = "ArchivalDocument";
 
+#[derive(Debug, PartialEq, Eq)]
 pub enum HyraxModel {
     ArchivalDocument,
     FileSet
 }
 
-
+#[derive(Debug, PartialEq, Eq)]
 pub struct FedoraResource {
-    uri: String,
-    model: HyraxModel,
-    ref_id: String, // ArchivesSpace ref_id
+    pub uri: String,
+    pub model: HyraxModel,
+    pub ref_id: String, // ArchivesSpace ref_id
 
 }
 
@@ -40,6 +41,7 @@ fn extract_identifier(triple: &Triple) -> Option<String> {
 
 impl FedoraResource {
     pub fn from_graph(g: &Graph, uri: &str) -> Option<Self> {
+
         let model_pred = Node::UriNode{uri: Uri::new(HYRAX_MODEL_PREDICATE.to_string())};
         //let model_object = Node::LiteralNode { literal: HYRAX_MODEL_OBJECT.to_string(), data_type: None, language: None };
         let aref_pred = Node::UriNode{uri: Uri::new(ASPACE_REF_PREDICATE.to_string())};
@@ -72,14 +74,14 @@ pub fn create_client() -> Result<Client> {
 }
 
 pub async fn get_fedora_resource(client: &Client, uri: &str, fedora_auth: &FedoraAuth) -> Result<Option<FedoraResource>> {
-    let resp = client.get(uri)
+    let url = fedora_auth.root_url.join(uri)?;
+    let resp = client.get(url)
         .basic_auth(&fedora_auth.username, Some(&fedora_auth.password))
         .send()
         .await?
         .text()
         .await?;
-    let mut reader = TurtleParser::from_string(resp);
-
+    let mut reader = TurtleParser::from_string(&resp);
     match reader.decode() {
         Ok(graph) => Ok(FedoraResource::from_graph(&graph, uri)),
         Err(error) => Err(anyhow::Error::msg(format!("{:?}", error))), // Maybe a more elegant way to handle this --> the Error type implemented by the rdf crate is not Send + Sync, which makes using it in this async context problematic

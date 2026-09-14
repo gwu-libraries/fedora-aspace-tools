@@ -5,6 +5,8 @@ use uuid::Uuid;
 use futures::stream::StreamExt;
 use futures::sink::SinkExt;
 use anyhow::Result;
+use tokio;
+use std::time::Duration;
 
 pub type FedoraURIs = HashMap<String, ()>;
 
@@ -12,7 +14,8 @@ pub async fn get_messages(server_url: &str, queue: &str) -> Result<FedoraURIs> {
     let mut conn = Connector::builder()
         .server(server_url)
         .virtualhost("/")
-        .headers(vec![("heart-beat".to_string(), "1000,1000".to_string())]) // TO DO: Make configurable
+        .heartbeat(2000, 2000)
+        //.headers(vec![("heart-beat".to_string(), "1000,1000".to_string())]) // TO DO: Make configurable
         .connect()
         .await?;
 
@@ -26,10 +29,10 @@ pub async fn get_messages(server_url: &str, queue: &str) -> Result<FedoraURIs> {
 
     println!("Waiting for messages");
 
-    while let Some(response) = conn.next().await {
-        match response {
-            Ok(message) => {
-                // Only need the message header!
+    loop {
+        match tokio::time::timeout(Duration::from_millis(10000), conn.next()).await {
+            Ok(Some(Ok(message))) => {
+
                 if let FromServer::Message { headers, .. } = message.content {
                     println!("{:?}", headers);
 
@@ -44,12 +47,21 @@ pub async fn get_messages(server_url: &str, queue: &str) -> Result<FedoraURIs> {
                     }
                 }
             },
-            Err(err) => {
-                // This is suboptimal: the disconnection on a heartbeat timeout currently triggers errors that don't transparently indicate that.
-                eprintln!("Error receiving message: {:?}", err);
+            Ok(Some(Err(e))) => {
+                eprintln!("Connection lost: {e}");
+                break;
+            }
+            Ok(None) => {
+                println!("Server closed the connection");
+                break;
+            }
+            Err(_) => {
+                println!("Timeout: no more messages");
                 break;
             }
         }
     }
+
+    println!("Server disconnected");
     Ok(fedora_uris)
 }

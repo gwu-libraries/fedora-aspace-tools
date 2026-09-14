@@ -8,3 +8,7 @@ fedora-tools = { path = "../fedora-tools"}
 futures = "0.3.33"
 tokio = {version = "1.53.1", features = ["full"]}
 tokio-stream = {version = "0.1.19", features = ["full"]}
+
+[dev-dependencies]
+mockito = "1.7.2"
+rstest = "0.27.0"

@@ -5,12 +5,18 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0.104"
-async-stomp = "0.6.3"
+#async-stomp = "0.6.3"
+async-stomp = { git = "https://github.com/snaggen/async-stomp.git", branch = "heartbeat"}
 futures = "0.3.33"
-json-ld = "0.21.4"
+tokio = {version = "1.53.1", features = ["full"]}
+tokio-stream = {version = "0.1.19", features = ["full"]}
 reqwest = { version = "0.13", features = ["json"] }
 uris = "0.1.1"
 rdf = "0.1.4"
+
+[dev-dependencies]
+mockito = "1.7.2"
+rstest = "0.27.0"
 
 [dependencies.uuid]
 version = "1.24.0"

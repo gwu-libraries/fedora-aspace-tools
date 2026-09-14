@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fedora: <http://fedora.info/definitions/v4/repository#> .
+@prefix ebucore: <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix iana: <http://www.iana.org/assignments/relation/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+<http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351560>
+        <http://www.openarchives.org/ore/terms/proxyFor>  <http://localhost:8080/fcrepo/rest/development/69/c3/c8/78/69c3c878-382d-43f4-b519-408a77c65ee4> ;
+        iana:next  <http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351580> .
+
+<http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351580>
+        <http://www.openarchives.org/ore/terms/proxyFor>  <http://localhost:8080/fcrepo/rest/development/86/da/ec/5b/86daec5b-04b7-4a0a-b0ee-8772a04e6ab1> ;
+        iana:next  <http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351600> .
+
+<http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351600>
+        <http://www.openarchives.org/ore/terms/proxyFor>  <http://localhost:8080/fcrepo/rest/development/ce/5a/1d/82/ce5a1d82-f8cb-445d-a478-da4c48927fe2> ;
+        iana:next  <http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351620> .
+
+<http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351620>
+        <http://www.openarchives.org/ore/terms/proxyFor>  <http://localhost:8080/fcrepo/rest/development/f2/a1/fa/3f/f2a1fa3f-fe1b-40d8-8204-1899a6102f6c> .
+
+<http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011>
+        <http://scholarsphere.psu.edu/ns#arkivoChecksum>  "" ;
+        <http://fedora.info/definitions/1/0/access/ObjState#objState>  <http://fedora.info/definitions/1/0/access/ObjState#active> ;
+        <http://id.loc.gov/vocabulary/relators/dpt>  "admin@example.com" ;
+        ebucore:hasRelatedImage  <http://localhost:8080/fcrepo/rest/development/f2/a1/fa/3f/f2a1fa3f-fe1b-40d8-8204-1899a6102f6c> ;
+        dcterms:dateSubmitted    "2026-09-11T13:44:15.768879051+00:00"^^<http://example.com/predicate/valkyrie_datetime> ;
+        ebucore:hasRelatedMediaFragment  <http://localhost:8080/fcrepo/rest/development/69/c3/c8/78/69c3c878-382d-43f4-b519-408a77c65ee4> ;
+        <http://vocabulary.samvera.org/ns#created_at>  "2026-09-11T13:43:24.97302525+00:00"^^<http://example.com/predicate/valkyrie_datetime> ;
+        dcterms:modified         "2026-09-11T13:44:15.768879051+00:00"^^<http://example.com/predicate/valkyrie_datetime> ;
+        dcterms:id               <http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011> ;
+        dcterms:title            "Work for STOMP Test - ArchivalDocument" ;
+        iana:last                <http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351620> ;
+        <info:fedora/fedora-system:def/model#downloadFilename>  "" ;
+        dcterms:identifier       "some-archivesspace-identifier" ;
+        <http://vocabulary.samvera.org/ns#updatedAt>  "2026-09-11T14:16:37.545031679+00:00"^^<http://example.com/predicate/valkyrie_time> ;
+        iana:first               <http://localhost:8080/fcrepo/rest/development/cc/49/3b/7e/cc493b7e-b7f4-4783-8d94-569479fb5011#g351560> ;
+        <info:fedora/fedora-system:def/model#hasModel>  "ArchivalDocument" ;
+        dcterms:isPartOf         <http://localhost:8080/fcrepo/rest/development/84/0e/d3/73/840ed373-1709-40db-913a-0fe969e8124e> ;
+        dc:creator               "Pommerantz MacGuire" ;
+        fedora:created           "2026-09-11T13:43:25.134814Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        fedora:lastModified      "2026-09-11T14:16:37.661392Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+        fedora:createdBy         "fedoraAdmin" ;
+        fedora:lastModifiedBy    "fedoraAdmin" ;
+        rdf:type                 ldp:BasicContainer ;
+        rdf:type                 ldp:Resource ;
+        rdf:type                 fedora:Resource ;
+        rdf:type                 ldp:RDFSource ;
+        rdf:type                 ldp:Container ;
+        rdf:type                 fedora:Container .

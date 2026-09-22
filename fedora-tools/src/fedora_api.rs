@@ -19,6 +19,7 @@ pub struct FedoraResource {
     pub uri: String,
     pub model: HyraxModel,
     pub ref_id: String, // ArchivesSpace ref_id
+    pub related_url: Option<String>,
 
 }
 
@@ -57,6 +58,7 @@ impl FedoraResource {
                     uri: uri.to_owned(),
                     model: HyraxModel::ArchivalDocument, // implement a conversion from the model string
                     ref_id: a_ref,
+                    related_url: None, // TO DO: retrieve from triples
             })
         } else {
             None

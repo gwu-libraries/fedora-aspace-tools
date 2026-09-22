@@ -17,6 +17,9 @@ rdf = "0.1.4"
 [dev-dependencies]
 mockito = "1.7.2"
 rstest = "0.27.0"
+serde_json = "1.0.151"
+serde = "1.0.229"
+glob = "0.3.4"
 
 [dependencies.uuid]
 version = "1.24.0"

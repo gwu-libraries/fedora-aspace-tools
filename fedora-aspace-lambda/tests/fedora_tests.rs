@@ -19,7 +19,6 @@ fn load_turtle(uri: &'static str) -> String {
 }
 
 
-
 #[rstest]
 #[tokio::test]
 async fn parses_turtle_response(uris: Vec<(&'static str, &'static str)>) {
@@ -40,7 +39,7 @@ async fn parses_turtle_response(uris: Vec<(&'static str, &'static str)>) {
             "ArchivalDocument" => {
                 assert!(!resource.is_none());
                 match resource {
-                    Some(r) => assert_eq!(r, FedoraResource{ uri: uri.0.to_owned(), ref_id: "some-archivesspace-identifier".to_owned(), model: HyraxModel::ArchivalDocument}),
+                    Some(r) => assert_eq!(r, FedoraResource{ uri: uri.0.to_owned(), ref_id: "some-archivesspace-identifier".to_owned(), model: HyraxModel::ArchivalDocument, related_url: None}),
                     None => ()
                 }
             },

@@ -1,0 +1,23 @@
+{
+  "lock_version": 0,
+  "created_by": "admin",
+  "last_modified_by": "admin",
+  "create_time": "2026-09-15T15:21:36Z",
+  "system_mtime": "2026-09-15T15:21:36Z",
+  "user_mtime": "2026-09-15T15:21:36Z",
+  "instance_type": "audio",
+  "jsonmodel_type": "instance",
+  "is_representative": false,
+  "sub_container": {
+    "lock_version": 0,
+    "indicator_2": "7",
+    "created_by": "admin",
+    "last_modified_by": "admin",
+    "create_time": "2026-09-15T15:21:36Z",
+    "system_mtime": "2026-09-15T15:21:36Z",
+    "user_mtime": "2026-09-15T15:21:36Z",
+    "type_2": "reel",
+    "jsonmodel_type": "sub_container",
+    "top_container": { "ref": "/repositories/2/top_containers/1" }
+  }
+}

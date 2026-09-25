@@ -1,0 +1,58 @@
+{
+  "lock_version": 1,
+  "digital_object_id": "a248c774-5aab-4172-a51d-30391493d076",
+  "title": "Zero Hour, Airdate: 12/25/1973",
+  "publish": false,
+  "restrictions": false,
+  "created_by": "admin",
+  "last_modified_by": "admin",
+  "create_time": "2026-09-15T15:21:20Z",
+  "system_mtime": "2026-09-15T15:22:54Z",
+  "user_mtime": "2026-09-15T15:21:20Z",
+  "suppressed": false,
+  "is_slug_auto": true,
+  "jsonmodel_type": "digital_object",
+  "external_ids": [],
+  "subjects": [],
+  "linked_events": [],
+  "extents": [],
+  "lang_materials": [],
+  "dates": [],
+  "external_documents": [],
+  "rights_statements": [],
+  "linked_agents": [],
+  "file_versions": [
+    {
+      "lock_version": 0,
+      "file_uri": "https://preservation-storage1.library.gwu.edu/inventory.html?folder=digcol2-contents/ms2083/ref1637_vhk",
+      "publish": false,
+      "created_by": "admin",
+      "last_modified_by": "admin",
+      "create_time": "2026-09-15T15:21:20Z",
+      "system_mtime": "2026-09-15T15:21:20Z",
+      "user_mtime": "2026-09-15T15:21:20Z",
+      "use_statement": "access_staff",
+      "xlink_actuate_attribute": "onRequest",
+      "xlink_show_attribute": "new",
+      "jsonmodel_type": "file_version",
+      "is_representative": false,
+      "identifier": "7"
+    }
+  ],
+  "classifications": [],
+  "notes": [
+    {
+      "jsonmodel_type": "note_digital_object",
+      "content": ["<p>Zero Hour, Airdate: 12/25/1973</p>"],
+      "type": "note",
+      "persistent_id": "7218d6e3c2e16e987942d27b2ce61328",
+      "publish": true
+    }
+  ],
+  "collection": [{ "ref": "/repositories/2/resources/1" }],
+  "linked_instances": [{ "ref": "/repositories/2/archival_objects/33" }],
+  "metadata_rights_declarations": [],
+  "uri": "/repositories/2/digital_objects/7",
+  "repository": { "ref": "/repositories/2" },
+  "tree": { "ref": "/repositories/2/digital_objects/7/tree" }
+}

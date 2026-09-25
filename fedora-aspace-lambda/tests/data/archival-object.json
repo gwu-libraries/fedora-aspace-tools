@@ -1,0 +1,94 @@
+{
+        "lock_version": 0,
+        "position": 7,
+        "publish": true,
+        "ref_id": "aspace_ref1637_vhk",
+        "component_id": "Series 1",
+        "title": "Zero Hour",
+        "display_string": "Zero Hour, Airdate: 12/25/1973",
+        "restrictions_apply": false,
+        "created_by": "admin",
+        "last_modified_by": "admin",
+        "create_time": "2026-09-15T15:21:36Z",
+        "system_mtime": "2026-09-15T15:22:54Z",
+        "user_mtime": "2026-09-15T15:21:36Z",
+        "suppressed": false,
+        "is_slug_auto": true,
+        "level": "file",
+        "jsonmodel_type": "archival_object",
+        "external_ids": [
+          {
+            "external_id": "/repositories/2/archival_objects/131760",
+            "source": "aspace_uri",
+            "created_by": "admin",
+            "last_modified_by": "admin",
+            "create_time": "2026-09-15T15:21:36Z",
+            "system_mtime": "2026-09-15T15:21:36Z",
+            "user_mtime": "2026-09-15T15:21:36Z",
+            "jsonmodel_type": "external_id"
+          },
+          {
+            "external_id": "472686",
+            "source": "Archivists Toolkit Database::RESOURCE_COMPONENT",
+            "created_by": "admin",
+            "last_modified_by": "admin",
+            "create_time": "2026-09-15T15:21:36Z",
+            "system_mtime": "2026-09-15T15:21:36Z",
+            "user_mtime": "2026-09-15T15:21:36Z",
+            "jsonmodel_type": "external_id"
+          }
+        ],
+        "subjects": [],
+        "linked_events": [],
+        "extents": [],
+        "lang_materials": [],
+        "dates": [
+          {
+            "lock_version": 0,
+            "expression": "Airdate: 12/25/1973",
+            "created_by": "admin",
+            "last_modified_by": "admin",
+            "create_time": "2026-09-15T15:21:36Z",
+            "system_mtime": "2026-09-15T15:21:36Z",
+            "user_mtime": "2026-09-15T15:21:36Z",
+            "date_type": "single",
+            "label": "creation",
+            "era": "ce",
+            "calendar": "gregorian",
+            "jsonmodel_type": "date"
+          }
+        ],
+        "external_documents": [],
+        "rights_statements": [],
+        "linked_agents": [],
+        "import_previous_arks": [],
+        "ancestors": [
+          { "ref": "/repositories/2/archival_objects/1", "level": "series" },
+          { "ref": "/repositories/2/resources/1", "level": "collection" }
+        ],
+        "instances": [
+          |instances|
+          ],
+        "notes": [
+          {
+            "jsonmodel_type": "note_multipart",
+            "subnotes": [
+              {
+                "publish": true,
+                "jsonmodel_type": "note_text",
+                "content": "<emph render=\"bold\">Item Title:</emph> unknown <emph render=\"bold\">Copy Details:</emph> Air Copy <emph render=\"bold\">Broadcast Time:</emph>: 7:00-7:29:30pm <emph render=\"bold\">Date Recorded:</emph> 12/18/1973"
+              }
+            ],
+            "type": "odd",
+            "persistent_id": "aspace_8e6820be363a596ebadb7ae5aab8f033",
+            "label": "General Note",
+            "publish": true
+          }
+        ],
+        "accession_links": [],
+        "uri": "/repositories/2/archival_objects/33",
+        "repository": { "ref": "/repositories/2" },
+        "resource": { "ref": "/repositories/2/resources/1" },
+        "parent": { "ref": "/repositories/2/archival_objects/1" },
+        "has_unpublished_ancestor": false
+      }

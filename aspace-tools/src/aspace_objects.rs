@@ -25,12 +25,17 @@ struct Session {
      session: String
 }
 
+/*
+ * Wrapper to hole the session token -- we probably don't need this
+ */
 #[derive(Debug)]
 pub struct SessionShared {
     session: String
 }
 
-/* To be created from ENV; used for creating an ASPace session. The base_url will be cloned across multiple requests. */
+/*
+ * To be created from ENV variables; used for creating an ASPace session. The base_url will be cloned across multiple requests.
+ */
 #[derive(Debug)]
 pub struct Auth {
     pub base_url: Url,
@@ -79,7 +84,9 @@ pub struct FileVersion {
     publish: bool,
     is_representative: bool,
 }
-/* A digital object record from the ASpace API. This is an incomplete representation: just the fields needed to add a new file version to an existing digital object. */
+/*
+ * A digital object record from the ASpace API. This is an incomplete representation: just the fields needed to add a new file version to an existing digital object.
+ */
 #[derive(Debug)]
 #[derive(Serialize, Deserialize)]
 pub struct DigitalObject {
@@ -97,7 +104,7 @@ pub enum ArchivesSpaceData {
 }
 
 /*
- * Stores both the serde::Value representation of the JSON object as well as the struct representation from above. The former contains all the fields, most of which we don't need to modify, but we use them to avoid POSTing an incomplete object to ASpace
+ * Stores both the serde::Value representation of the JSON object as well as the DigitalObject representation defined above. The former contains all the fields, most of which we don't need to modify, but we use them to avoid POSTing an incomplete object to ASpace
  */
 #[derive(Debug)]
 pub struct DigitalObjectWrapper {
@@ -128,7 +135,7 @@ impl SessionShared {
         match response.error_for_status() {
             Ok(res) => {
                 let session = res.json::<Session>().await?;
-                Ok(SessionShared { session: Arc::new(session.session) })
+                Ok(SessionShared { session: session.session })
             }
             Err(err) => Err(anyhow!(err))
         }

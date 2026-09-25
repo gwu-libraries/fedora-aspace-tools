@@ -301,12 +301,14 @@ dependencies = [
 name = "fedora-aspace-lambda"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
  "aspace-tools",
  "fedora-tools",
  "futures",
  "mockito",
  "reqwest",
  "rstest",
+ "serde_json",
  "tokio",
  "tokio-stream",
 ]

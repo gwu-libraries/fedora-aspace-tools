@@ -1,0 +1,23 @@
+[
+  ["expires", "0"],
+  [
+    "org.fcrepo.jms.identifier",
+    "/development/93/e9/1a/90/93e91a90-ff3a-45ae-88db-535c3d671dac"
+  ],
+  ["org.fcrepo.jms.user", "fedoraAdmin"],
+  [
+    "org.fcrepo.jms.resourceType",
+    "http://www.w3.org/ns/ldp#BasicContainer,http://fedora.info/definitions/v4/repository#Resource,http://mementoweb.org/ns#OriginalResource,http://www.w3.org/ns/ldp#Container,http://www.w3.org/ns/ldp#Resource,http://www.w3.org/ns/ldp#RDFSource,http://fedora.info/definitions/v4/repository#Container,http://mementoweb.org/ns#TimeGate"
+  ],
+  ["destination", "/queue/fedora"],
+  ["org.fcrepo.jms.eventType", "https://www.w3.org/ns/activitystreams#Update"],
+  ["subscription", "39e98dc3-2793-46e7-ab9c-964f9a4b7d14"],
+  ["priority", "4"],
+  ["org.fcrepo.jms.baseURL", "http://fedora:8080/fcrepo/rest"],
+  ["org.fcrepo.jms.eventID", "urn:uuid:ac39ea5c-5d44-465b-a4ec-8dc4c14a6331"],
+  ["org.fcrepo.jms.timestamp", "1789134511677"],
+  ["message-id", "ID:afe504da0cfb-38893-1789133723931-4:1:1:1:102"],
+  ["persistent", "true"],
+  ["org.fcrepo.jms.userAgent", "Faraday+v2.14.1"],
+  ["timestamp", "1789134511700"]
+]

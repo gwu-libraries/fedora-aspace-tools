@@ -7,7 +7,6 @@ use std::sync::Arc;
 use crate::aspace_objects::{ArchivesSpaceRecordId::{ArchivalObjectRefId, ArchivalObjectURI, DigitalObjectURI}, *};
 /*
  * To Do:
- *   - Mock API testing
  *   - Implement tracing
  **
  */
@@ -21,24 +20,24 @@ pub struct ArchivesSpaceUpdate {
     client: Arc<ArchivesSpaceClient>, // to clone across threads
     object_id: ArchivesSpaceRecordId,
     hyrax_ref: String,
-    object: Option<ArchivesSpaceData>,
+    pub object: Option<ArchivesSpaceData>,
 }
 
 /*
- *  Contains thread-safe clones
+ *  Meant to be shared across threads via an Arc clone
  */
 #[derive(Debug)]
 pub struct ArchivesSpaceClient {
-    client: Client, // clone of reqwest::Client (uses Arc internally to share across threads)
-    base_url: Url, // cloned from auth
-    session: SessionShared,
+    client: Client, // reqwest::Client (uses Arc internally to share across threads)
+    pub base_url: Url, // cloned from auth
+    pub session: SessionShared,
 }
 
 impl ArchivesSpaceClient {
     pub async fn new(auth: Auth) -> Result<Arc<Self>> {
         let client = Client::builder().build()?;
         let session = SessionShared::create_session(&auth, &client).await?;
-
+        // Wrapping this with an Arc allows us to share a single client across threads
         Ok(Arc::new(ArchivesSpaceClient {
             client: client,
             session: session,
@@ -76,7 +75,7 @@ impl ArchivesSpaceClient {
      * Update an object of type T via ASpace API
      */
     pub async fn update_object<T>(&self, object_uri: Url, object: &T) -> Result<()>
-        where T: serde::Serialize {
+        where T: serde::Serialize  {
             let headers = self.construct_headers()?;
             let response = self.client.post(object_uri)
                                 .headers(headers)
@@ -98,13 +97,13 @@ impl ArchivesSpaceUpdate {
         let id = ArchivesSpaceRecordId::from_fedora_resource(resource, &client.base_url)?;
         Ok(ArchivesSpaceUpdate {
             client: client,
-            object_id: id,
-            hyrax_ref: resource.uri.clone(),
-            object: None,  // Holds JSON after request
+            object_id: id, // initially either an archival object URI or ref ID
+            hyrax_ref: resource.uri.clone(), // The Hyrax URL of the resource
+            object: None,  // Holds JSON objects from the ASpace API
         })
     }
     /*
-     * Handles the first two phases of the ASpace pipeline:
+     * Handles the first two phases of the ASpace pipeline. Meant to be calleed twice:
      * 1) retrieve the archival object corresponding to the given object URI or ref ID
      * 2) retrieve the digital object corresponding to a digital object URI
      * Internal state is updated with the retrieved object
@@ -129,26 +128,27 @@ impl ArchivesSpaceUpdate {
                 ArchivesSpaceData::DigitalObject(DigitalObjectWrapper::new(json_obj)?)
             }
         };
-        let _ = self.object.insert(obj);
+        let _ = self.object.insert(obj); // Update the field with the object
         Ok(())
     }
     /*
      * Extracts a digital object URI from an archival object.
-     * This should be run AFTER phase 1 above and before phase 2.
+     * This should be run AFTER phase 1 above and BEFORE phase 2.
      */
     pub fn extract_digital_object_ref(&mut self) -> Result<()> {
         match &self.object {
             Some(ArchivesSpaceData::ArchivalObject(obj)) => {
                 if let Some(digital_object_ref) = obj.extract_digital_object_ref() {
-                    self.object_id = ArchivesSpaceRecordId::from_digital_object_ref(&digital_object_ref, &self.client.base_url)?
+                    self.object_id = ArchivesSpaceRecordId::from_digital_object_ref(&digital_object_ref, &self.client.base_url)?;
+                    return Ok(());
                 }
-                Ok(())
+                Err(anyhow!("No digital object identifier found in archival object"))
             }
-            _ => Ok(())
+            _ => Err(anyhow!("No archival object found to extract from"))
         }
     }
     /*
-     * Phase 3: update the digital object with a new file version containing the URI to the Hyrax resource
+     * Phase 3: update the digital object with a new file version containing the URI to the Hyrax resource. This should be run last in sequence.
      */
     pub async fn update_digital_object(&mut self) -> Result<()> {
         match &mut self.object {
